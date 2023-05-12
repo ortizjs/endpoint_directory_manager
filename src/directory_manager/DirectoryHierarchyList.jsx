@@ -19,7 +19,7 @@ const DirectoryHierarchyList = ({ directories }) => {
       
       {directories.map((directory) => (
         <div key={directory.name}>
-          <h3>{directory.name}</h3>
+          <h4>{directory.name}</h4>
           {directory?.subDirectories?.length > 0 && renderDirectoryHierarchy(directory)}
         </div>
       ))}

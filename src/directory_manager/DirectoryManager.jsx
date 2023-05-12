@@ -206,6 +206,13 @@ const DirectoryManager = () => {
 
     };
 
+    const onHitEnter = (event) => {
+        var code = event.key;
+        if (code === 'Enter') {
+            handleRunDirectoryUpdate(event)
+        }
+    }
+
     // useEffect(() => {
     //     if (!isMounted.current) {
     //         isMounted.current = true;
@@ -220,20 +227,23 @@ const DirectoryManager = () => {
             <div className='new-directory-input-container' >
                 <input
                     type="text" 
-                    palceholder="Please enter directory name" 
+                    placeholder="Please enter a command" 
                     value={command} 
                     onChange={handleInputChange}
+                    onKeyPress={onHitEnter}
                 />
             </div>
-            <button onClick={handleRunDirectoryUpdate}>Run Directory Update</button>
-            <button onClick={handleSampleInput}>Run Sample Input</button>
-            <div>
+            <div className='buttons-container'>
+                <button className="run-buttons" onClick={handleRunDirectoryUpdate}>Run Directory Update</button>
+                <button className="run-buttons" onClick={handleSampleInput}>Run Sample Input</button>
+            </div>
+            <div className='hierarchy-conainter'>
                 <h2>Directory Hierarchy</h2>
                 {showDirectoryList ? 
                 <DirectoryHierarchyList
                     directories={directories}
                 /> : <>
-                    <h3>{message}</h3>
+                    <h4>{message}</h4>
                 </>}
             </div>
         </div>
