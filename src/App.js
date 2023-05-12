@@ -1,9 +1,10 @@
-import React from 'react'
+import React from 'react';
+import DirectoryManager from './directory_manager/DirectoryManager';
 
 function App() {
   return (
-    <div>
-      
+    <div className='app-container'>
+      <DirectoryManager/>
     </div>
   )
 }
